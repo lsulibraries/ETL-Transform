@@ -43,7 +43,7 @@ This code performs a post-processing process for LDL (Library Digital Library) c
 It extracts information from RDF files, updates the metadata, and prepares it for import into Islandora Workbench. The resulting CSV files can be used for further data management and curation tasks.<\br>
 
 ### Functions
-The code is organized into several functions:<\br>
+The code is organized into several functions: <\br>
 a.	process_command_line_arguments():<\br>
 This function processes command-line arguments using the argparse library and returns the parsed arguments as an object.<\br><\br>
 b.	files_directories(all_files):<\br>
