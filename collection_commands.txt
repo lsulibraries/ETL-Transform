@@ -1,4 +1,4 @@
-amistad-pgoudvis:collection
+collection_name:collection
 
 
 cd /var/www/drupal7
@@ -29,6 +29,7 @@ for f in *.jp2; do opj_decompress -i "$f" -OutFor PNG -o "${f%.*}.png"; done;
 XML2workbench command:
 python3 xml2csv.py -i LDL_Tracking_Spreadsheet/collection_name/Data -cc LDL-Master-CSV.csv -o LDL_Tracking_Spreadsheet/collection_name/xml2csv_collection_name.csv
 LDL-Master-CSV_Milad_sample
+
 >>> On Test mapping:
 python3 xml2csv.py -i LDL_Tracking_Spreadsheet/collection_name/Data -cc LDL_Tracking_Spreadsheet/LDL-Master-CSV_Milad_sample.csv -o LDL_Tracking_Spreadsheet/collection_name/xml2csv_collection_name_V3.csv
 
@@ -38,3 +39,7 @@ python3 LDL-post-processing.py -c LDL_Tracking_Spreadsheet/collection_name/xml2c
 
 >>> On Test mapping:
 python3 LDL-post-processing.py -c LDL_Tracking_Spreadsheet/collection_name/xml2csv_collection_name.csv -f LDL_Tracking_Spreadsheet/collection_name/Data -o LDL_Tracking_Spreadsheet/collection_name
+
+Workbench:
+>>> ./workbench --config CONFIG.yml --check
+>>> ./workbench --config CONFIG.yml 
