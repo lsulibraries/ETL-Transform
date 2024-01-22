@@ -40,24 +40,24 @@ Master CSV is an edited csv file using output csv from mode 2 that Librarian sho
 
 ## 2) Post-Processing 
 This code performs a post-processing process for LDL (Library Digital Library) content migration using Islandora Workbench. It takes metadata in CSV format, extracts information from RDF files, and prepares the data for importing into Islandora Workbench. The processed data is then saved as a new CSV file.
-It extracts information from RDF files, updates the metadata, and prepares it for import into Islandora Workbench. The resulting CSV files can be used for further data management and curation tasks.<\br>
+It extracts information from RDF files, updates the metadata, and prepares it for import into Islandora Workbench. The resulting CSV files can be used for further data management and curation tasks.</br>
 
 ### Functions
-The code is organized into several functions: <\br>
-a.	process_command_line_arguments():<\br>
-This function processes command-line arguments using the argparse library and returns the parsed arguments as an object.<\br><\br>
-b.	files_directories(all_files):<\br>
-This function takes a directory path and returns a list of file paths in that directory.<\br><\br>
-c.	csv_directories(metadata_csv):<\br>
-This function takes a directory path and returns a list of CSV files in that directory.<\br><\br>
-d.	objects_to_df(csvs, OBJS)<\br>
+The code is organized into several functions: </br>
+a.	process_command_line_arguments():</br>
+This function processes command-line arguments using the argparse library and returns the parsed arguments as an object.</br></br>
+b.	files_directories(all_files):</br>
+This function takes a directory path and returns a list of file paths in that directory.</br></br>
+c.	csv_directories(metadata_csv):</br>
+This function takes a directory path and returns a list of CSV files in that directory.</br></br>
+d.	objects_to_df(csvs, OBJS)</br>
 
 ### Command Line Arguments
-The code uses command-line arguments to specify the input and output directories and the CSV file with metadata.)<\br>
-Command Line Arguments:)<\br>
--c or --csv_directory: Path to the directory containing CSV files with metadata.)<\br>
--f or --files_directory: Path to the directory containing object files (OBJs).)<\br>
--o or --output_directory: Path to the directory where the output CSV files will be saved.)<\br>
+The code uses command-line arguments to specify the input and output directories and the CSV file with metadata.)</br>
+Command Line Arguments:)</br>
+-c or --csv_directory: Path to the directory containing CSV files with metadata.)</br>
+-f or --files_directory: Path to the directory containing object files (OBJs).)</br>
+-o or --output_directory: Path to the directory where the output CSV files will be saved.)</br>
 
 
 
