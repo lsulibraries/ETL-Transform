@@ -80,18 +80,15 @@ def uniq_data_to_dict(arg):
         data['tags'].append(atts)
         data['tags frequency'].append(duplicates)
 
-    # Fill the columns with less number of rows with an empty string
-    if len(data['atributes']) != len(data['tags']):
-        difference = len(data['tags']) - len(data['atributes'])
-        for num in range(abs(difference)):
-            if data['atributes'] < data['tags']:
-                data['atributes'].append("NONE")
-                data['atributes frequency'].append(" ")
-            if data['tags'] < data['atributes']:
-                data['tags'].append("NONE")
-                data['tags frequency'].append(" ")
+    max_length = max(len(data['atributes']), len(data['atributes frequency']), len(data['tags']), len(data['tags frequency']))
+    print(max_length)
+    data['atributes'] += [np.nan] * (max_length - len(data['atributes']))
+    data['atributes frequency'] += [np.nan] * (max_length - len(data['atributes frequency']))
+    data['tags'] += [np.nan] * (max_length - len(data['tags']))
+    data['tags frequency'] += [np.nan] * (max_length - len(data['tags frequency']))
 
     return to_csv(data, arg)
+
 
 ##### Part II: Get the XML Path, check for spelling and errors in each xml path according to Part 1 #####
 def get_csv(arg,argument):
