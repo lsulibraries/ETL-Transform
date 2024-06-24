@@ -5,6 +5,8 @@ import re
 import pandas as pd
 import argparse
 import datetime
+import numpy as np
+
 ######################################################################## PART I: Get unique Tags and Attributes ########################################################################
 paths_counts = {}
 check = set()
