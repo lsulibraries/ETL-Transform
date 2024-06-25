@@ -178,18 +178,19 @@ def input_RDF(RDF_dir, LDL):
 
     return LDL
 
-def write(csv, input_df, loc):
-    filename = csv.split('_')[-1]
-    Workbench_ready_csv = input_df.to_csv("{}/post-processed-{}".format(loc, filename), index=False)
+def write(input_df, output_filename):
+    Workbench_ready_csv = input_df.to_csv("{}".format(output_filename), index=False)
     print('*******************************************\nData post processed and written to csv ...\n*******************************************')
     return Workbench_ready_csv
+
 
 def main():
     args = process_command_line_arguments()
     LDLdf_1 = input_directory(args.csv_directory,args.files_directory)
     input = input_RDF(args.files_directory,LDLdf_1)
-    output = write(args.csv_directory, input,args.output_directory)
+    output = write(input,args.output_directory)
 main()
+
 
 
 ## Command:
