@@ -117,19 +117,11 @@ for f in *.jp2; do opj_decompress -i "$f" -OutFor PNG -o "${f%.*}.png"; done;
     - Specified only the CSV name to save the file in the current directory: -o FINAL_CSV_NAME.csv
 
 
-
-## Data Ingestion using Workbench tool :
+## 3. Data Ingestion using Workbench tool :
 ```sh
 ./workbench --config CONFIG.yml --check
 ./workbench --config CONFIG.yml 
 ```
-
-
-### Command Line Arguments
-The code uses command-line arguments to specify the input and output directories and the CSV file with metadata.)</br>
-Command Line Arguments:)</br>
-
-
 
 
 
