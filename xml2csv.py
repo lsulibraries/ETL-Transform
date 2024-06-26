@@ -154,10 +154,10 @@ def to_csv(dictionary, arg):
     print("***\nwrite to csv at:", formatted_time, "\nstarte at: ", start_time, "\n")
     if arg.input_csv is not None:
         sorted_df = DF.sort_values("XMLPath", ascending=True)
-        sorted_df.to_csv("{}.csv".format(arg.output_directory), index=False)
+        sorted_df.to_csv("{}".format(arg.output_directory), index=False)
         # print("<<< A csv file containing unique LDL xml paths, saved in this directory : {directory}.csv >>>".format(directory=arg.output_directory))
     else:
-        DF.to_csv("{}.csv".format(arg.output_attribsTags), index=0)
+        DF.to_csv("{}".format(arg.output_attribsTags), index=0)
         # print("<<< An attribute/Tag csv file saved in this directory : {directory}.csv at {}>>>".format(directory=arg.output_attribsTags,))
 
 ###### Part III: Start the xml2workbench process  #####
