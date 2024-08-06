@@ -134,31 +134,6 @@ def input_RDF(RDF_dir, LDL):
     if group_list:
         item_list.append(group_list)
     
-    #Replaced this code for generating the new list and instead used the item_list and group_list above
-    # mylist_to_list = [list(i) for i in mylist] ##Extra(To make each element from tuple to list)##
-    # splitting = []
-    # for each in mylist_to_list:
-    #     if each[0] == ("RDF"):
-    #         splitting.append(each)
-    #     if each[0] == ("hasModel"):
-    #         splitting.append(each)
-    #     if each[0] == ("isConstituentOf"):
-    #         splitting.append(each)
-    #     #if each[0] == ("isPageOf"):
-    #     #     splitting.append(each)
-    #     if each[0] == ("isSequenceNumber"):
-    #         splitting.append(each)
-    #     if each[0] == ("isPageNumber"):
-    #         splitting.append(each)
-    #     if each[0] == ("isSection"):
-    #         splitting.append(each)
-    #     if each[0] == ("isMemberOf"):
-    #         splitting.append(each)
-    #     if each[0] == ("deferDerivatives"):
-    #         splitting.append(each)
-    #     if each[0] == ("generate_ocr"):
-    #         splitting.append(each)
-    # new = [ones for ones in mylist_to_list if ones not in splitting] #only keeps Description, isSequenceNumberOf and isMemberOfCollection
     weight = []
     field_member_of = []
     count = []
@@ -182,10 +157,11 @@ def input_RDF(RDF_dir, LDL):
         if r+1 > (len(item_list)):
             break
         else:
-            if "isSequenceNumber" == item_list[r][4][0]:
-                collectionName = RDF_dir.split("/")[6]
-                nameofnumber = item_list[r][4][2]
-                weight.append(nameofnumber)
+            if len(item_list[r]) > 3:
+                if "isSequenceNumber" == item_list[r][4][0]:
+                    collectionName = RDF_dir.split("/")[6]
+                    nameofnumber = item_list[r][4][2]
+                    weight.append(nameofnumber)
             if "isSequenceNumberOf" in item_list[r][0]:
                 #collectionName = RDF_dir.split("/")[1]
                 collectionName = RDF_dir.split("/")[6]
