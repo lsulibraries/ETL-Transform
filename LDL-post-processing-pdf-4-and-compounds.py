@@ -100,8 +100,6 @@ def input_RDF(RDF_dir, LDL):
     for vals in val:
         attrib.append(list(vals.values()))
     
-    ## Code Changed!!!!!
-    # loop through text to extract dateIssued text, if no text then
     for snippet in text:
         if snippet != None and "\n" not in snippet and snippet != 'true' and len(snippet) > 4:
                 text_list.append(snippet)
@@ -109,15 +107,12 @@ def input_RDF(RDF_dir, LDL):
             text_list.append('')
     for i in range(len(text_list)):
         date_issueds.append(text_list[i])
+
+
     for num in range(len(tags)):
         name_tag = tags[num].split('}')
-        # print(name_tag)
         if "isSequenceNumberOf" in name_tag[1]:
-            # print(name_tag[1])
             weightList.append(text[num])
-        # if "isSequenceNumber" in name_tag[1]:
-        #     weightList.append(text[num])    
-        #     # print(name_tag[1])
         else:
             weightList.append("")
 
@@ -137,7 +132,6 @@ def input_RDF(RDF_dir, LDL):
     if group_list:
         item_list.append(group_list)
     
-    # print(item_list[0])
     
     weight = []
     field_member_of = []
@@ -146,7 +140,6 @@ def input_RDF(RDF_dir, LDL):
     #modified this loop to get isMemberOf value for each issue's parent_id
     #modified the item array to use item[3][0]
     for item in item_list:
-        print(item)
         if item[3][0] == 'isMemberOf':
             parent_pid = item[3][1][0].split("/")
             parrent.append(parent_pid[1])
@@ -162,7 +155,6 @@ def input_RDF(RDF_dir, LDL):
    
    
    
-    ## Code Changed!!!!!
     issue_dates = []
     for r in range(len(item_list)):
         if r+1 > (len(item_list)):
@@ -190,11 +182,6 @@ def input_RDF(RDF_dir, LDL):
     LDL["field_edtf_date_issued"] = issue_dates
     LDL["field_edtf_date_created"] = ""
     LDL["field_linked_agent"] = ""
-
-    # change the date to EDTF format Skip for now!
-    # LDL['field_date'] = pd.to_datetime(LDL['field_date']).dt.strftime('%Y-%m-%d')
-    # print(LDL[['field_date', 'id']])
-    # print('Data is written in dataframe ...')
 
     return LDL
 
