@@ -24,12 +24,11 @@ def input_directory(csvs, OBJS):
     file_name = []
     id_to_list = LDLdf["id"].tolist() ###Putting the elements of id column to a list###
     for IDs in id_to_list:
-        print(IDs)
         splitted_IDs= IDs.split(':')
         coll_name.append(splitted_IDs[0])
         coll_num.append(splitted_IDs[1])
     for colls in range(len(coll_name)):
-        file_name.append("{}_{}_PDF".format(coll_name[colls], coll_num[colls]))
+        file_name.append("{}_{}_OBJ".format(coll_name[colls], coll_num[colls]))
         
     ObjFiles = [] #getting the names of the OBJ FILES 
     file_format = "" #getting the file type of OBJ FILES
@@ -47,6 +46,7 @@ def input_directory(csvs, OBJS):
     file_column = []
     for files in file_name:
         if files in ObjFiles:
+
             file_column.append("Data/{}{}".format(files,file_format)) #EDIT >>> deleted Collection form formating the name because we do not have a folder consist of data for each collection
         else:
             file_column.append("")
@@ -60,7 +60,7 @@ def input_directory(csvs, OBJS):
     LDLdf["field_weight"] = ""
     LDLdf["field_member_of"] = ""
     LDLdf["field_model"] = "" #The number of resource type according to collection, obj or any other kind in the resource types in drupal
-    LDLdf["field_access_terms"] = "LouisianaNewspapers" #customized field for groups, which is a number associated with the group names number
+    LDLdf["field_access_terms"] = "" #customized field for groups, which is a number associated with the group names number
     LDLdf["field_resource_type"] = "" #The number of resource type according to collection, obj or any other kind in the resource types in drupal
     LDLdf.drop("field_date_captured", inplace=True ,axis= 1, errors='ignore')
     LDLdf.drop("field_is_preceded_by", inplace=True ,axis= 1,errors='ignore')
@@ -142,12 +142,10 @@ def input_RDF(RDF_dir, LDL):
 
     for item in item_list:
         if item[2][0] == 'isMemberOf':
-            print('got-an-issue')
             parent_pid = item[2][1][0].split("/")
             parrent.append(parent_pid[1])
-        if item[2][0] == 'isMemberOfCollection':
-            print(item[2][1][0].split('/')[1])
-            parrent.append(item[2][1][0].split('/')[1])
+        if item[2][0] == 'isMemberOfCollection' or item[3][0] == 'isMemberOfCollection':
+            parrent.append(item[3][1][0].split('/')[1])
             if "isPageOf" in item[0]:
                 count.append(item)
    
@@ -157,7 +155,7 @@ def input_RDF(RDF_dir, LDL):
         if r+1 > (len(item_list)):
             break
         else:
-            if len(item_list[r]) > 3:
+            if len(item_list[r]) > 4:
                 if "isSequenceNumber" == item_list[r][4][0]:
                     collectionName = RDF_dir.split("/")[6]
                     nameofnumber = item_list[r][4][2]
@@ -174,7 +172,7 @@ def input_RDF(RDF_dir, LDL):
             else:
                 issue_dates.append("")
 
-            if "isMemberOfCollection" == item_list[r][2][0]:
+            if "isMemberOfCollection" == item_list[r][2][0] or "isMemberOfCollection" == item_list[r][3][0]:
                 coll = item_list[r][2][1][0].split("/")[1]
                 field_member_of.append(coll)
                 weight.append("")

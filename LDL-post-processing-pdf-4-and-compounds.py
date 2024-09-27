@@ -21,41 +21,37 @@ def input_directory(csvs, OBJS):
     LDLdf.rename(columns= {'PID' : 'id'},  inplace = True)
     coll_name = []
     coll_num = []
-    file_name = []
+    obj_sting = []
     id_to_list = LDLdf["id"].tolist() ###Putting the elements of id column to a list###
     for IDs in id_to_list:
-        # print(IDs)
         splitted_IDs= IDs.split(':')
         coll_name.append(splitted_IDs[0])
         coll_num.append(splitted_IDs[1])
     for colls in range(len(coll_name)):
-        file_name.append("{}_{}_OBJ".format(coll_name[colls], coll_num[colls]))
-        
-    ObjFiles = [] #getting the names of the OBJ FILES 
-    file_format = "" #getting the file type of OBJ FILES
-    
-    FILES = os.listdir(OBJS)
-    for file in FILES:
-        if "PDF" in file:
-            ObjFiles.append(file.split(".")[0])
-            file_format =  ".{}".format(file.split(".")[1])
-        if "OBJ" in file:
-            ObjFiles.append(file.split(".")[0])
-            file_format =  ".{}".format(file.split(".")[1])    
+        obj_sting.append("{}_{}_OBJ".format(coll_name[colls], coll_num[colls]))
 
+    # From directory we put the file names and their type to a dictionary istead of using multiple lists then will compare to the list of customized file names with _OBJ from file_name to see if the file in directory did not have obj retur empty
+    file_dict  = {}
+    for file in os.listdir(OBJS):
+        if "OBJ" in file:
+            name, ext = os.path.splitext(file)
+            file_dict[name] = ext  # Add name and extension to the dictionary
+
+    
     #Filling the file_column list to fill the file column:
     file_column = []
-    for files in file_name:
-        if files in ObjFiles:
-            file_column.append("Data/{}{}".format(files,file_format)) #EDIT >>> deleted Collection form formating the name because we do not have a folder consist of data for each collection
+    for each in obj_sting:
+        if each in file_dict:
+            file_column.append("Data/{}{}".format(each, file_dict[each])) #EDIT >>> deleted Collection form formating the name because we do not have a folder consist of data for each collection
         else:
             file_column.append("")
+    
     # print("This will be concat of the the name of File column generated for the files that are Objects: \n{}".format(file_column))
     # print("------------------------------------------------")
 
 
     LDLdf["file"] = file_column
-    del file_format
+    # del file_format
     LDLdf["parent_id"] = ""
     LDLdf["field_weight"] = ""
     LDLdf["field_member_of"] = ""
@@ -103,6 +99,8 @@ def input_RDF(RDF_dir, LDL):
         tag_name.append(split_tags[1]) # ALL THE TAGS
     for vals in val:
         attrib.append(list(vals.values()))
+    
+    ## Code Changed!!!!!
     # loop through text to extract dateIssued text, if no text then
     for snippet in text:
         if snippet != None and "\n" not in snippet and snippet != 'true' and len(snippet) > 4:
@@ -113,44 +111,58 @@ def input_RDF(RDF_dir, LDL):
         date_issueds.append(text_list[i])
     for num in range(len(tags)):
         name_tag = tags[num].split('}')
-        if "isSequenceNumberOf" == name_tag[1]:
+        # print(name_tag)
+        if "isSequenceNumberOf" in name_tag[1]:
+            # print(name_tag[1])
             weightList.append(text[num])
-        if "isSequenceNumber" == name_tag[1]:
-            weightList.append(text[num])    
+        # if "isSequenceNumber" in name_tag[1]:
+        #     weightList.append(text[num])    
+        #     # print(name_tag[1])
         else:
             weightList.append("")
+
     #mylist list of all tupels 2907 in this case
     mylist = list(zip(tag_name, attrib, weightList, date_issueds))
-    # print(len(mylist))
 
+    ## Code Changed!!!!!
     #loop through all tupels and group each item's tupels into a list
     item_list = []
     group_list = []
     for tupel_item in mylist:
         group_list.append(list(tupel_item))
+        # print(tupel_item)
         if tupel_item[0] == 'RDF' and len(group_list) > 1:
             item_list.append(group_list)
             group_list = [list(tupel_item)]
     if group_list:
         item_list.append(group_list)
     
+    # print(item_list[0])
+    
     weight = []
     field_member_of = []
     count = []
 
     #modified this loop to get isMemberOf value for each issue's parent_id
-
+    #modified the item array to use item[3][0]
     for item in item_list:
-        if item[2][0] == 'isMemberOf':
-            parent_pid = item[2][1][0].split("/")
+        print(item)
+        if item[3][0] == 'isMemberOf':
+            parent_pid = item[3][1][0].split("/")
             parrent.append(parent_pid[1])
-        if item[2][0] == 'isMemberOfCollection':
-            # print(item[2][1][0].split('/')[1])
-            parrent.append(item[2][1][0].split('/')[1])
-            if "isPageOf" in item[0]:
-                count.append(item)
+            weight.append('')
+        if item[3][0] == 'isMemberOfCollection':
+            parrent.append(item[3][1][0].split('/')[1])
+            weight.append('')
+        if item[3][0] == 'isConstituentOf':
+            parrent.append(item[3][1][0].split('/')[1])
+            weight.append(item[4][2])
+        if item[3][0] == 'hasModel':
+            parrent.append(item[2][1][0].split('/')[1])        
    
-
+   
+   
+    ## Code Changed!!!!!
     issue_dates = []
     for r in range(len(item_list)):
         if r+1 > (len(item_list)):
