@@ -61,7 +61,13 @@ def input_directory(csvs, OBJS):
     LDLdf.drop("field_date_captured", inplace=True ,axis= 1, errors='ignore')
     LDLdf.drop("field_is_preceded_by", inplace=True ,axis= 1,errors='ignore')
     LDLdf.drop("field_is_succeeded_by", inplace=True ,axis= 1,errors='ignore')
-    
+    LDLdf.drop("field_form_URI", inplace=True ,axis= 1,errors='ignore')
+    LDLdf.drop("field_form_authURI", inplace=True ,axis= 1,errors='ignore')
+    LDLdf.drop("field_rights_statement", inplace=True ,axis= 1,errors='ignore')
+    LDLdf.drop("field_rights_statement_uri", inplace=True ,axis= 1,errors='ignore')
+    LDLdf.drop("nan", inplace=True ,axis= 1,errors='ignore')
+
+
     #fill nul values
     LDLdf = LDLdf.apply(lambda col: col.fillna(''))
     return LDLdf
