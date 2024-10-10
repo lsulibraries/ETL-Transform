@@ -59,6 +59,9 @@ def input_directory(csvs, OBJS):
     LDLdf.drop("field_rights_statement_uri", inplace=True ,axis= 1,errors='ignore')
     LDLdf.drop("nan", inplace=True ,axis= 1,errors='ignore')
 
+
+
+
     #fill nul values
     LDLdf = LDLdf.apply(lambda col: col.fillna(''))
     return LDLdf
@@ -200,6 +203,10 @@ def input_RDF(RDF_dir, LDL):
     LDL["field_edtf_date_issued"] = issue_dates
     LDL["field_edtf_date_created"] = ""
     LDL["field_linked_agent"] = ""
+    LDL.sort_values(by='parent_id', ascending=True, inplace=True)
+    LDL.sort_values(by='field_identifier', ascending=False, inplace=True)
+    LDL.sort_values(by='field_model', ascending=True, inplace=True)
+
 
     return LDL
 
