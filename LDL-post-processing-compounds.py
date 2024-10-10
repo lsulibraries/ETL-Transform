@@ -124,6 +124,9 @@ def input_RDF(RDF_dir, LDL):
         item_list.append(group_list)
     
     for i in range(len(item_list)):
+        if item_list[i][2][1][0] == 'info:fedora/islandora:bookCModel':
+            content_type.append('Paged Content')
+            viewer.append('Mirador')
         if item_list[i][2][1][0] == 'info:fedora/islandora:sp_large_image_cmodel':
             content_type.append('Image')
             viewer.append('OpenSeadragon')
@@ -135,6 +138,12 @@ def input_RDF(RDF_dir, LDL):
             viewer.append('')
         if item_list[i][3][1][0] == 'info:fedora/islandora:collectionCModel':
             content_type.append('Collection')
+            viewer.append('')
+        if item_list[i][2][1][0] == 'info:fedora/islandora:newspaperCModel':
+            content_type.append('Newspaper')
+            viewer.append('')
+        if item_list[i][2][1][0] == 'info:fedora/islandora:newspaperIssueCModel':
+            content_type.append('Publication Issue')
             viewer.append('')
         if item_list[i][2][1][0] == 'info:fedora/islandora:sp_pdf':
             content_type.append('Document')
