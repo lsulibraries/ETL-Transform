@@ -16,7 +16,6 @@ def process_command_line_arguments():
 
 ################### 1) Getting data and fill the file column if files exist in the Data directory ########################
 def input_directory(csvs, OBJS):
-    Collection = csvs.split(".")[0]
     LDLdf = pd.DataFrame(pd.read_csv(csvs,encoding='utf-8'))
     LDLdf.rename(columns= {'PID' : 'id'},  inplace = True)
     coll_name = []
@@ -162,9 +161,9 @@ def input_RDF(RDF_dir, LDL):
                     weight.append(new[r+1][2])
                                       
                 if "isMemberOfCollection" in new[r+1][0]:
-                    Collection = new[r+1][1][0].split("/")[1]
-                    field_member_of.append(Collection)
-                    parrent.append(Collection)
+                    collectionMember = new[r+1][1][0].split("/")[1]
+                    field_member_of.append(collectionMember)
+                    parrent.append(collectionMember)
                     weight.append("")
 
                 if "isMemberOfCollection" not in new[r+1][0]:
