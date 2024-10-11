@@ -157,23 +157,25 @@ def input_RDF(RDF_dir, LDL):
 
     #modified this loop to get isMemberOf value for each issue's parent_id
     for item in item_list:
+        # print(item)
         if item[3][0] == 'isMemberOf':
             parent_pid = item[3][1][0].split("/")
             parent.append(parent_pid[1])
             weight.append('')
-        if item[3][0] == 'isMemberOfCollection':
-            parent.append(item[3][1][0].split('/')[1])
+        if item[2][0] == 'isMemberOfCollection':
+            # parent.append(item[2][1][0].split('/')[1])
+            parent.append('')
             weight.append('')
         if item[3][0] == 'isConstituentOf':
             parent.append(item[3][1][0].split('/')[1])
             weight.append(item[4][2])
-        if item[3][0] == 'hasModel':
-            parent.append(item[3][1][0].split('/')[1])        
-            weight.append('')
+        # if item[3][0] == 'hasModel':
+        #     print('hasmodel')
+        #     parent.append(item[3][1][0].split('/')[1])        
+        #     weight.append('')
         if item[3][0] == 'deferDerivatives':
             parent.append(item[4][1][0].split('/')[1])        
             weight.append('')
-    print(len(weight))
 
     issue_dates = []
     for r in range(len(item_list)):
