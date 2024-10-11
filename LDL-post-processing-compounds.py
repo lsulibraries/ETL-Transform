@@ -42,7 +42,6 @@ def input_directory(csvs, OBJS):
         else:
             file_column.append("")
 
-
     LDLdf["file"] = file_column
     LDLdf["parent_id"] = ""
     LDLdf["field_weight"] = ""
@@ -59,9 +58,6 @@ def input_directory(csvs, OBJS):
     LDLdf.drop("field_rights_statement_uri", inplace=True ,axis= 1,errors='ignore')
     LDLdf.drop("nan", inplace=True ,axis= 1,errors='ignore')
 
-
-
-
     #fill nul values
     LDLdf = LDLdf.apply(lambda col: col.fillna(''))
     return LDLdf
@@ -76,9 +72,8 @@ def input_RDF(RDF_dir, LDL):
     tag_name = [] #ALL the Tags in the rdf
     attrib = []
     text = []
-    #added list of values found in text with snippet loop
     text_list = []
-    weightList= []
+    weight_list = []
     parent = []
     date_issueds = []
     file_type = []
@@ -109,10 +104,10 @@ def input_RDF(RDF_dir, LDL):
     for num in range(len(tags)):
         name_tag = tags[num].split('}')
         if "isSequenceNumberOf" in name_tag[1]:
-            weightList.append(text[num])
+            weight_list.append(text[num])
         else:
-            weightList.append("")
-    mylist = list(zip(tag_name, attrib, weightList, date_issueds))
+            weight_list.append("")
+    mylist = list(zip(tag_name, attrib, weight_list, date_issueds))
 
     #loop through all tupels and group each item's tupels into a list
     item_list = []
@@ -139,9 +134,10 @@ def input_RDF(RDF_dir, LDL):
         if item_list[i][2][1][0]  == 'info:fedora/islandora:sp_videoCModel':
             content_type.append('Video')
             viewer.append('')
-        if item_list[i][3][1][0] == 'info:fedora/islandora:collectionCModel':
-            content_type.append('Collection')
-            viewer.append('')
+        if item_list[i][3][0] != 'deferDerivatives':
+            if item_list[i][3][1][0] == 'info:fedora/islandora:collectionCModel':
+                content_type.append('Collection')
+                viewer.append('')
         if item_list[i][2][1][0] == 'info:fedora/islandora:newspaperCModel':
             content_type.append('Newspaper')
             viewer.append('')
@@ -171,10 +167,13 @@ def input_RDF(RDF_dir, LDL):
         if item[3][0] == 'isConstituentOf':
             parent.append(item[3][1][0].split('/')[1])
             weight.append(item[4][2])
-        #if the case is collection item[3][0] == 'hasModel'
         if item[3][0] == 'hasModel':
-            # parent.append(item[3][1][0].split('/')[1])        
-            parent.append('')
+            parent.append(item[3][1][0].split('/')[1])        
+            weight.append('')
+        if item[3][0] == 'deferDerivatives':
+            parent.append(item[4][1][0].split('/')[1])        
+            weight.append('')
+    print(len(weight))
 
     issue_dates = []
     for r in range(len(item_list)):
@@ -185,16 +184,12 @@ def input_RDF(RDF_dir, LDL):
                 collectionName = RDF_dir.split("/")[6]
                 nameofnumber = item_list[r][0]
                 ParentNumber = nameofnumber.split("_")[1]
-                parent.append("{}:{}".format(collectionName, ParentNumber))
-                weight.append(item_list[r][2])
+                # parent.append("{}:{}".format(collectionName, ParentNumber))
+                # weight.append(item_list[r][2])
             if "dateIssued" == item_list[r][-3][0]:
                 issue_dates.append(item_list[r][-3][3])
             else:
                 issue_dates.append("")
-            if "isMemberOfCollection" == item_list[r][2][0]:
-                coll = item_list[r][2][1][0].split("/")[1]
-                field_member_of.append(coll)
-                weight.append("")
                     
     LDL["parent_id"] = parent    
     LDL["field_weight"] = weight

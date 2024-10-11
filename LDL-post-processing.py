@@ -20,43 +20,35 @@ def input_directory(csvs, OBJS):
     LDLdf.rename(columns= {'PID' : 'id'},  inplace = True)
     coll_name = []
     coll_num = []
-    file_name = []
+    obj_string = []
     id_to_list = LDLdf["id"].tolist() ###Putting the elements of id column to a list###
     for IDs in id_to_list:
         splitted_IDs= IDs.split(':')
         coll_name.append(splitted_IDs[0])
         coll_num.append(splitted_IDs[1])
     for colls in range(len(coll_name)):
-        file_name.append("{}_{}_OBJ".format(coll_name[colls], coll_num[colls]))
-        
-    ObjFiles = [] #getting the names of the OBJ FILES 
-    file_format = "" #getting the file type of OBJ FILES
-    
-    FILES = os.listdir(OBJS)         
-    for file in FILES:
+        obj_string.append("{}_{}_OBJ".format(coll_name[colls], coll_num[colls]))
+      # From directory we put the file names and their type to a dictionary istead of using multiple lists then will compare to the list of customized file names with _OBJ from file_name to see if the file in directory did not have obj retur empty
+    file_dict = {}
+    for file in os.listdir(OBJS):
         if "OBJ" in file:
-            ObjFiles.append(file.split(".")[0])
-            file_format =  ".{}".format(file.split(".")[1])
-
+            name, ext = os.path.splitext(file)
+            file_dict[name] = ext
     #Filling the file_column list to fill the file column:
     file_column = []
-    for files in file_name:
-        if files in ObjFiles:
-            file_column.append("Data/{}{}".format(files,file_format)) #EDIT >>> deleted Collection form formating the name because we do not have a folder consist of data for each collection
+    for each in obj_string:
+        if each in file_dict:
+            file_column.append("Data/{}{}".format(each, file_dict[each]))
         else:
             file_column.append("")
-    # print("This will be concat of the the name of File column generated for the files that are Objects: \n{}".format(file_column))
-    # print("------------------------------------------------")
-
 
     LDLdf["file"] = file_column
-    del file_format
     LDLdf["parent_id"] = ""
     LDLdf["field_weight"] = ""
     LDLdf["field_member_of"] = ""
-    LDLdf["field_model"] = "32" #The number of resource type according to collection, obj or any other kind in the resource types in drupal
-    LDLdf["field_access_terms"] = "14" #customized field for groups, which is a number associated with the group names number
-    LDLdf["field_resource_type"] = "4" #The number of resource type according to collection, obj or any other kind in the resource types in drupal
+    LDLdf["field_model"] = "" #The number of resource type according to collection, obj or any other kind in the resource types in drupal
+    LDLdf["field_access_terms"] = "" #customized field for groups, which is a number associated with the group names number
+    LDLdf["field_resource_type"] = "" #The number of resource type according to collection, obj or any other kind in the resource types in drupal
     LDLdf.drop("field_date_captured", inplace=True ,axis= 1, errors='ignore')
     LDLdf.drop("field_is_preceded_by", inplace=True ,axis= 1,errors='ignore')
     LDLdf.drop("field_is_succeeded_by", inplace=True ,axis= 1,errors='ignore')
@@ -75,13 +67,16 @@ def input_directory(csvs, OBJS):
 
 def input_RDF(RDF_dir, LDL):
     data = glob.glob("{}/*.rdf".format(RDF_dir))
-    # print("List of the RDF files in the directory: \n{}".format(data))
     tags = [] #getting none-splitted
     val = [] #adding values to
     tag_name = [] #ALL the Tags in the rdf
     attrib = []
     text = []
-    weightList= []
+    weight_list= []
+    parent = []
+    date_issueds = []
+    file_type = []
+    content_type = []
     data.sort()
     
     for dirs in data:
@@ -99,10 +94,10 @@ def input_RDF(RDF_dir, LDL):
         attrib.append(list(vals.values()))
     for num in range(len(tags)):
         if "isSequenceNumberOf" in tags[num]:
-            weightList.append(text[num])
+            weight_list.append(text[num])
         else:
-            weightList.append("")
-    mylist = list(zip( tag_name, attrib, weightList))
+            weight_list.append("")
+    mylist = list(zip( tag_name, attrib, weight_list))
     mylist_to_list = [list(i) for i in mylist] ##Extra(To make each element from tuple to list)##
     splitting = []
     for each in mylist_to_list:
