@@ -165,7 +165,32 @@ def input_RDF(RDF_dir, LDL):
         if item_list[i][2][1][0] == 'info:fedora/islandora:compoundCModel':
             content_type.append('Compound Object')
             viewer.append('')
-    
+        if item_list[i][3][0]  == 'hasModel':
+            if item_list[i][3][1][0] == 'info:fedora/islandora:bookCModel':
+                content_type.append('Paged Content')
+                viewer.append('Mirador')
+            if item_list[i][3][1][0] == 'info:fedora/islandora:sp_large_image_cmodel':
+                content_type.append('Image')
+                viewer.append('OpenSeadragon')
+            if item_list[i][3][1][0]  == 'info:fedora/islandora:sp-audioCModel':
+                content_type.append('Audio')
+                viewer.append('')
+            if item_list[i][3][1][0]  == 'info:fedora/islandora:sp_videoCModel':
+                content_type.append('Video')
+                viewer.append('')
+            if item_list[i][3][1][0] == 'info:fedora/islandora:newspaperCModel':
+                content_type.append('Newspaper')
+                viewer.append('')
+            if item_list[i][3][1][0] == 'info:fedora/islandora:newspaperIssueCModel':
+                content_type.append('Publication Issue')
+                viewer.append('')
+            if item_list[i][3][1][0] == 'info:fedora/islandora:sp_pdf':
+                content_type.append('Document')
+                viewer.append('PDF.js')
+            if item_list[i][3][1][0] == 'info:fedora/islandora:compoundCModel':
+                content_type.append('Compound Object')
+                viewer.append('')
+        
     weight = []
     field_member_of = []
     count = []
@@ -175,10 +200,14 @@ def input_RDF(RDF_dir, LDL):
         if item[3][0] == 'isMemberOf':
             parent_pid = item[3][1][0].split("/")
             parent.append(parent_pid[1])
-            weight.append('')
+            weight.append('') 
         if item[2][0] == 'isMemberOfCollection' and item[2][1][0].split('/')[1] == 'islandora:root':
             # parent.append(item[2][1][0].split('/')[1])
             parent.append('')
+            weight.append('')
+        if item[2][0] == 'isMemberOfCollection' and item[2][1][0].split('/')[1] != 'islandora:root':
+            parent.append(item[2][1][0].split('/')[1])
+            # parent.append('')
             weight.append('')
         if item[3][0] == 'isMemberOfCollection':
             parent.append(item[3][1][0].split('/')[1])
@@ -214,9 +243,10 @@ def input_RDF(RDF_dir, LDL):
     LDL["field_edtf_date_issued"] = issue_dates
     LDL["field_edtf_date_created"] = ""
     LDL["field_linked_agent"] = ""
-    LDL.sort_values(by='parent_id', ascending=True, inplace=True)
-    LDL.sort_values(by='field_identifier', ascending=False, inplace=True)
     LDL.sort_values(by='field_model', ascending=True, inplace=True)
+    LDL.sort_values(by='field_identifier', ascending=False, inplace=True)
+    LDL.sort_values(by='parent_id', ascending=True, inplace=True)
+    LDL.sort_values(by='field_weight', ascending=True, inplace=True)
 
 
     return LDL
