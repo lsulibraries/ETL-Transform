@@ -42,12 +42,27 @@ def input_directory(csvs, OBJS):
         else:
             file_column.append("")
 
+    #id slice of the 
+    keys = ['amistad', 'apl', 'cppl', 'dcc', 'ebrpl', 'fpoc', 'hicks', 'hnoc', 'lasc', 'lsm', 'lsu', 'lsua', 'lsus', 'lsuhsc', 'lsuhscs', 'latech', 'loyno', 'louisiananewspapers', 'mcneese', 'nojh', 'nicholls', 'nsu', 'oplib', 'slu','subr', 'sowela','tahil']
+    values = ['Amistad', 'APL', 'CPPL', 'DCC', 'EBRPL', 'FPOC', 'Hicks', 'HNOC', 'LASC', 'LSM', 'LSU', 'LSUA', 'LSUS', 'LSUHSC', 'LSUSHCS', 'LATECH', 'LouisianaNewspapers', 'LOYNO', 'McNeese', 'NOJH', 'Nicholls', 'NSU', 'OPLIB', 'SLU', 'SUBR', 'SOWELA', 'TAHIL']
+    
+    map_terms = {}
+
+    for k in range(len(keys)):
+        map_terms[keys[k]] = values[k]
+
+
+    field_access_terms = []
+    for i in id_to_list:
+        field_access_terms.append(map_terms[i.split('-')[0]])
+
+
     LDLdf["file"] = file_column
     LDLdf["parent_id"] = ""
     LDLdf["field_weight"] = ""
     LDLdf["field_member_of"] = ""
     LDLdf["field_model"] = "" #The number of resource type according to collection, obj or any other kind in the resource types in drupal
-    LDLdf["field_access_terms"] = "" #customized field for groups, which is a number associated with the group names number
+    LDLdf["field_access_terms"] = field_access_terms #customized field for groups, which is a number associated with the group names number
     LDLdf["field_resource_type"] = "" #The number of resource type according to collection, obj or any other kind in the resource types in drupal
     LDLdf.drop("field_date_captured", inplace=True ,axis= 1, errors='ignore')
     LDLdf.drop("field_is_preceded_by", inplace=True ,axis= 1,errors='ignore')
@@ -157,22 +172,21 @@ def input_RDF(RDF_dir, LDL):
 
     #modified this loop to get isMemberOf value for each issue's parent_id
     for item in item_list:
-        # print(item)
         if item[3][0] == 'isMemberOf':
             parent_pid = item[3][1][0].split("/")
             parent.append(parent_pid[1])
             weight.append('')
-        if item[2][0] == 'isMemberOfCollection':
+        if item[2][0] == 'isMemberOfCollection' and item[2][1][0].split('/')[1] == 'islandora:root':
             # parent.append(item[2][1][0].split('/')[1])
             parent.append('')
+            weight.append('')
+        if item[3][0] == 'isMemberOfCollection':
+            parent.append(item[3][1][0].split('/')[1])
+            # parent.append('')
             weight.append('')
         if item[3][0] == 'isConstituentOf':
             parent.append(item[3][1][0].split('/')[1])
             weight.append(item[4][2])
-        # if item[3][0] == 'hasModel':
-        #     print('hasmodel')
-        #     parent.append(item[3][1][0].split('/')[1])        
-        #     weight.append('')
         if item[3][0] == 'deferDerivatives':
             parent.append(item[4][1][0].split('/')[1])        
             weight.append('')
