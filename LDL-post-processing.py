@@ -6,6 +6,7 @@ import os
 import argparse
 from dateutil import parser
 
+
 def process_command_line_arguments():
     parser = argparse.ArgumentParser(description='Post Processing Process For LDL Content Migration Using Islandora Workbench')
     parser.add_argument('-c', '--csv_directory', type=str, help='Path to metadata', required=False)
