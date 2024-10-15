@@ -16,63 +16,52 @@ def process_command_line_arguments():
 
 ################### 1) Getting data and fill the file column if files exist in the Data directory ########################
 def input_directory(csvs, OBJS):
+    Collection = csvs.split(".")[0]
     LDLdf = pd.DataFrame(pd.read_csv(csvs,encoding='utf-8'))
     LDLdf.rename(columns= {'PID' : 'id'},  inplace = True)
     coll_name = []
     coll_num = []
-    obj_string = []
+    file_name = []
     id_to_list = LDLdf["id"].tolist() ###Putting the elements of id column to a list###
     for IDs in id_to_list:
         splitted_IDs= IDs.split(':')
         coll_name.append(splitted_IDs[0])
         coll_num.append(splitted_IDs[1])
     for colls in range(len(coll_name)):
-        obj_string.append("{}_{}_OBJ".format(coll_name[colls], coll_num[colls]))
-    # From directory we put the file names and their type to a dictionary istead of using multiple lists then will compare to the list of customized file names with _OBJ from file_name to see if the file in directory did not have obj retur empty
-    file_dict = {}
-    for file in os.listdir(OBJS):
+        file_name.append("{}_{}_OBJ".format(coll_name[colls], coll_num[colls]))
+        
+    ObjFiles = [] #getting the names of the OBJ FILES 
+    file_format = "" #getting the file type of OBJ FILES
+    
+    FILES = os.listdir(OBJS)         
+    for file in FILES:
         if "OBJ" in file:
-            name, ext = os.path.splitext(file)
-            file_dict[name] = ext
+            ObjFiles.append(file.split(".")[0])
+            file_format =  ".{}".format(file.split(".")[1])
+
     #Filling the file_column list to fill the file column:
     file_column = []
-    for each in obj_string:
-        if each in file_dict:
-            file_column.append("Data/{}{}".format(each, file_dict[each]))
+    for files in file_name:
+        if files in ObjFiles:
+            file_column.append("Data/{}{}".format(files,file_format)) #EDIT >>> deleted Collection form formating the name because we do not have a folder consist of data for each collection
         else:
             file_column.append("")
-
-    #id slice of the 
-    keys = ['amistad', 'apl', 'cppl', 'dcc', 'ebrpl', 'fpoc', 'hicks', 'hnoc', 'lasc', 'lsm', 'lsu', 'lsua', 'lsus', 'lsuhsc', 'lsuhscs', 'latech', 'loyno', 'louisiananewspapers', 'mcneese', 'nojh', 'nicholls', 'nsu', 'oplib', 'slu','subr', 'sowela','tahil']
-    values = ['Amistad', 'APL', 'CPPL', 'DCC', 'EBRPL', 'FPOC', 'Hicks', 'HNOC', 'LASC', 'LSM', 'LSU', 'LSUA', 'LSUS', 'LSUHSC', 'LSUSHCS', 'LATECH', 'LouisianaNewspapers', 'LOYNO', 'McNeese', 'NOJH', 'Nicholls', 'NSU', 'OPLIB', 'SLU', 'SUBR', 'SOWELA', 'TAHIL']
-    
-    map_terms = {}
-
-    for k in range(len(keys)):
-        map_terms[keys[k]] = values[k]
-
-
-    field_access_terms = []
-    for i in id_to_list:
-        field_access_terms.append(map_terms[i.split('-')[0]])
+    # print("This will be concat of the the name of File column generated for the files that are Objects: \n{}".format(file_column))
+    # print("------------------------------------------------")
 
 
     LDLdf["file"] = file_column
+    del file_format
     LDLdf["parent_id"] = ""
     LDLdf["field_weight"] = ""
     LDLdf["field_member_of"] = ""
-    LDLdf["field_model"] = "" #The number of resource type according to collection, obj or any other kind in the resource types in drupal
-    LDLdf["field_access_terms"] = field_access_terms #customized field for groups, which is a number associated with the group names number
-    LDLdf["field_resource_type"] = "" #The number of resource type according to collection, obj or any other kind in the resource types in drupal
+    LDLdf["field_model"] = "32" #The number of resource type according to collection, obj or any other kind in the resource types in drupal
+    LDLdf["field_access_terms"] = "14" #customized field for groups, which is a number associated with the group names number
+    LDLdf["field_resource_type"] = "4" #The number of resource type according to collection, obj or any other kind in the resource types in drupal
     LDLdf.drop("field_date_captured", inplace=True ,axis= 1, errors='ignore')
     LDLdf.drop("field_is_preceded_by", inplace=True ,axis= 1,errors='ignore')
     LDLdf.drop("field_is_succeeded_by", inplace=True ,axis= 1,errors='ignore')
-    LDLdf.drop("field_form_URI", inplace=True ,axis= 1,errors='ignore')
-    LDLdf.drop("field_form_authURI", inplace=True ,axis= 1,errors='ignore')
-    LDLdf.drop("field_rights_statement", inplace=True ,axis= 1,errors='ignore')
-    LDLdf.drop("field_rights_statement_uri", inplace=True ,axis= 1,errors='ignore')
-    LDLdf.drop("nan", inplace=True ,axis= 1,errors='ignore')
-
+    
     #fill nul values
     LDLdf = LDLdf.apply(lambda col: col.fillna(''))
     return LDLdf
@@ -82,17 +71,13 @@ def input_directory(csvs, OBJS):
 
 def input_RDF(RDF_dir, LDL):
     data = glob.glob("{}/*.rdf".format(RDF_dir))
+    # print("List of the RDF files in the directory: \n{}".format(data))
     tags = [] #getting none-splitted
     val = [] #adding values to
     tag_name = [] #ALL the Tags in the rdf
     attrib = []
     text = []
-    text_list = []
-    weight_list = []
-    parent = []
-    date_issueds = []
-    file_type = []
-    content_type = []
+    weightList= []
     data.sort()
     
     for dirs in data:
@@ -108,146 +93,88 @@ def input_RDF(RDF_dir, LDL):
         tag_name.append(split_tags[1]) # ALL THE TAGS
     for vals in val:
         attrib.append(list(vals.values()))
-    # loop through text to extract dateIssued text, if no text then append empty string
-    for snippet in text:
-        if snippet != None and "\n" not in snippet and snippet != 'true' and len(snippet) > 4:
-                text_list.append(snippet)
-        else:
-            text_list.append('')
-    for i in range(len(text_list)):
-        date_issueds.append(text_list[i])
     for num in range(len(tags)):
-        name_tag = tags[num].split('}')
-        if "isSequenceNumberOf" in name_tag[1]:
-            weight_list.append(text[num])
+        if "isSequenceNumberOf" in tags[num]:
+            weightList.append(text[num])
         else:
-            weight_list.append("")
-    mylist = list(zip(tag_name, attrib, weight_list, date_issueds))
-
-    #loop through all tupels and group each item's tupels into a list
-    item_list = []
-    group_list = []
-    viewer = []
-    for tupel_item in mylist:
-        group_list.append(list(tupel_item))
-        if tupel_item[0] == 'RDF' and len(group_list) > 1:
-            item_list.append(group_list)
-            group_list = [list(tupel_item)]
-    if group_list:
-        item_list.append(group_list)
-    
-    for i in range(len(item_list)):
-        if item_list[i][2][1][0] == 'info:fedora/islandora:bookCModel':
-            content_type.append('Paged Content')
-            viewer.append('Mirador')
-        if item_list[i][2][1][0] == 'info:fedora/islandora:sp_large_image_cmodel':
-            content_type.append('Image')
-            viewer.append('OpenSeadragon')
-        if item_list[i][2][1][0]  == 'info:fedora/islandora:sp-audioCModel':
-            content_type.append('Audio')
-            viewer.append('')
-        if item_list[i][2][1][0]  == 'info:fedora/islandora:sp_videoCModel':
-            content_type.append('Video')
-            viewer.append('')
-        if item_list[i][3][0] != 'deferDerivatives':
-            if item_list[i][3][1][0] == 'info:fedora/islandora:collectionCModel':
-                content_type.append('Collection')
-                viewer.append('')
-        if item_list[i][2][1][0] == 'info:fedora/islandora:newspaperCModel':
-            content_type.append('Newspaper')
-            viewer.append('')
-        if item_list[i][2][1][0] == 'info:fedora/islandora:newspaperIssueCModel':
-            content_type.append('Publication Issue')
-            viewer.append('')
-        if item_list[i][2][1][0] == 'info:fedora/islandora:sp_pdf':
-            content_type.append('Document')
-            viewer.append('PDF.js')
-        if item_list[i][2][1][0] == 'info:fedora/islandora:compoundCModel':
-            content_type.append('Compound Object')
-            viewer.append('')
-        if item_list[i][3][0]  == 'hasModel':
-            if item_list[i][3][1][0] == 'info:fedora/islandora:bookCModel':
-                content_type.append('Paged Content')
-                viewer.append('Mirador')
-            if item_list[i][3][1][0] == 'info:fedora/islandora:sp_large_image_cmodel':
-                content_type.append('Image')
-                viewer.append('OpenSeadragon')
-            if item_list[i][3][1][0]  == 'info:fedora/islandora:sp-audioCModel':
-                content_type.append('Audio')
-                viewer.append('')
-            if item_list[i][3][1][0]  == 'info:fedora/islandora:sp_videoCModel':
-                content_type.append('Video')
-                viewer.append('')
-            if item_list[i][3][1][0] == 'info:fedora/islandora:newspaperCModel':
-                content_type.append('Newspaper')
-                viewer.append('')
-            if item_list[i][3][1][0] == 'info:fedora/islandora:newspaperIssueCModel':
-                content_type.append('Publication Issue')
-                viewer.append('')
-            if item_list[i][3][1][0] == 'info:fedora/islandora:sp_pdf':
-                content_type.append('Document')
-                viewer.append('PDF.js')
-            if item_list[i][3][1][0] == 'info:fedora/islandora:compoundCModel':
-                content_type.append('Compound Object')
-                viewer.append('')
-        
+            weightList.append("")
+    mylist = list(zip( tag_name, attrib, weightList))
+    mylist_to_list = [list(i) for i in mylist] ##Extra(To make each element from tuple to list)##
+    splitting = []
+    for each in mylist_to_list:
+        if each[0] == ("RDF"):
+            splitting.append(each)
+        if each[0] == ("hasModel"):
+            splitting.append(each)
+        if each[0] == ("isConstituentOf"):
+            splitting.append(each)
+        # if each[0] == ("isPageOf"):
+        #     splitting.append(each)
+        if each[0] == ("isSequenceNumber"):
+            splitting.append(each)
+        if each[0] == ("isPageNumber"):
+            splitting.append(each)
+        if each[0] == ("isSection"):
+            splitting.append(each)
+        if each[0] == ("isMemberOf"):
+            splitting.append(each)
+        if each[0] == ("deferDerivatives"):
+            splitting.append(each)
+        if each[0] == ("generate_ocr"):
+            splitting.append(each)
+    new = [ones for ones in mylist_to_list if ones not in splitting] #only keeps Description, isSequenceNumberOf and isMemberOfCollection
     weight = []
     field_member_of = []
+    parrent = []
     count = []
+    
+    for q in new:
+        if "isPageOf" in q[0]:
+            count.append(q)
 
-    #modified this loop to get isMemberOf value for each issue's parent_id
-    for item in item_list:
-        if item[3][0] == 'isMemberOf':
-            parent_pid = item[3][1][0].split("/")
-            parent.append(parent_pid[1])
-            weight.append('') 
-        if item[2][0] == 'isMemberOfCollection' and item[2][1][0].split('/')[1] == 'islandora:root':
-            # parent.append(item[2][1][0].split('/')[1])
-            parent.append('')
-            weight.append('')
-        if item[2][0] == 'isMemberOfCollection' and item[2][1][0].split('/')[1] != 'islandora:root':
-            parent.append(item[2][1][0].split('/')[1])
-            # parent.append('')
-            weight.append('')
-        if item[3][0] == 'isMemberOfCollection':
-            parent.append(item[3][1][0].split('/')[1])
-            # parent.append('')
-            weight.append('')
-        if item[3][0] == 'isConstituentOf':
-            parent.append(item[3][1][0].split('/')[1])
-            weight.append(item[4][2])
-        if item[3][0] == 'deferDerivatives':
-            parent.append(item[4][1][0].split('/')[1])        
-            weight.append('')
-
-    issue_dates = []
-    for r in range(len(item_list)):
-        if r+1 > (len(item_list)):
-            break
+    for r in range(len(new)):
+        if r+1 > (len(new)):
+            break   
         else:
-            if "isSequenceNumberOf" in item_list[r][0]:
-                collectionName = RDF_dir.split("/")[6]
-                nameofnumber = item_list[r][0]
-                ParentNumber = nameofnumber.split("_")[1]
-                # parent.append("{}:{}".format(collectionName, ParentNumber))
-                # weight.append(item_list[r][2])
-            if "dateIssued" == item_list[r][-3][0]:
-                issue_dates.append(item_list[r][-3][3])
-            else:
-                issue_dates.append("")
+            if "Description" in new[r][0]:
+                if "isPageOf" in new[r+1][0]:
+                    collectionName = RDF_dir.split("/")[1]
+                    nameofnumber = new[r+1][1][0]
+                    ParentNumber = nameofnumber.split(":")[2]
+                    parrent.append("{}:{}".format(collectionName, ParentNumber))
+                    weight.append(new[r+1][2])
                     
-    LDL["parent_id"] = parent    
+                if "Description" in new[r+1][0]:
+                    collectionName = RDF_dir.split("/")[1]
+                    parrent.append("{}:COLLECTION".format(collectionName))
+                    weight.append("")
+                                        
+                if "isSequenceNumberOf" in new[r+1][0]:
+                    collectionName = RDF_dir.split("/")[1]
+                    nameofnumber = new[r+1][0]
+                    ParentNumber = nameofnumber.split("_")[1]
+                    parrent.append("{}:{}".format(collectionName, ParentNumber))
+                    weight.append(new[r+1][2])
+                                      
+                if "isMemberOfCollection" in new[r+1][0]:
+                    Collection = new[r+1][1][0].split("/")[1]
+                    field_member_of.append(Collection)
+                    parrent.append(Collection)
+                    weight.append("")
+
+                if "isMemberOfCollection" not in new[r+1][0]:
+                    field_member_of.append("")
+                    
+          
+    LDL["parent_id"] = parrent    
     LDL["field_weight"] = weight
-    LDL["field_model"] = content_type
-    LDL["field_viewer_override"] = viewer
-    LDL["field_edtf_date_issued"] = issue_dates
     LDL["field_edtf_date_created"] = ""
     LDL["field_linked_agent"] = ""
-    LDL.sort_values(by='field_model', ascending=True, inplace=True)
-    LDL.sort_values(by='field_identifier', ascending=False, inplace=True)
-    LDL.sort_values(by='parent_id', ascending=True, inplace=True)
-    LDL.sort_values(by='field_weight', ascending=True, inplace=True)
 
+    # change the date to EDTF format Skip for now!
+    # LDL['field_date'] = pd.to_datetime(LDL['field_date']).dt.strftime('%Y-%m-%d')
+    # print(LDL[['field_date', 'id']])
+    # print('Data is written in dataframe ...')
 
     return LDL
 
@@ -260,8 +187,8 @@ def write(input_df, output_filename):
 def main():
     args = process_command_line_arguments()
     LDLdf_1 = input_directory(args.csv_directory,args.files_directory)
-    input_file = input_RDF(args.files_directory,LDLdf_1)
-    output = write(input_file,args.output_directory)
+    input = input_RDF(args.files_directory,LDLdf_1)
+    output = write(input,args.output_directory)
 main()
 
 

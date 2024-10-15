@@ -49,7 +49,7 @@ Repeated,Needed,att_needed,Fields,XMLPath
 51,,,,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/name [@valueURI= 'http://id.loc.gov/authorities/names/no2015036095']"
 51,,,,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/originInfo"
 51,,,,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/originInfo/dateCaptured"
-51,yes,,field_edtf_date_issued,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/originInfo/dateIssued [@keyDate = 'yes']"
+51,,,,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/originInfo/dateIssued [@keyDate = 'yes']"
 51,,,,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/part"
 51,,,,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/part/detail [@type = 'issue']"
 51,,,,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/part/detail [@type = 'issue']/caption"
@@ -82,9 +82,9 @@ Repeated,Needed,att_needed,Fields,XMLPath
 51,,,,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/subject [@authority = 'lcsh']/topic"
 51,,,,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/titleInfo"
 51,,,,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/titleInfo [@type = 'alternative']"
-51,yes,,title,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/titleInfo [@type = 'alternative']/title"
+51,,,,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/titleInfo [@type = 'alternative']/title"
 51,,,,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/titleInfo/nonSort"
-51,yes,,title,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/titleInfo/title"
+51,,,,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/titleInfo/title"
 51,,,,"mods [@version = '3.5', @{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']/typeOfResource"
 1932,,,,mods [@version= '3.5']
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']"
@@ -135,7 +135,7 @@ Repeated,Needed,att_needed,Fields,XMLPath
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/name [@valueURI= 'http://id.loc.gov/authorities/names/no2015036095']"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/originInfo"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/originInfo/dateCaptured"
-1881,yes,,field_edtf_date_issued,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/originInfo/dateIssued [@keyDate = 'yes']"
+1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/originInfo/dateIssued [@keyDate = 'yes']"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/part"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/part/detail [@type = 'issue']"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/part/detail [@type = 'issue']/caption"
@@ -159,18 +159,18 @@ Repeated,Needed,att_needed,Fields,XMLPath
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/relatedItem [@type = 'host']/location"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/relatedItem [@type = 'host']/location/url [@displayLabel = 'Relation']"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/relatedItem [@type = 'host']/titleInfo [@displayLabel = 'Digital Collection']"
-1881,yes,,title,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/relatedItem [@type = 'host']/titleInfo [@displayLabel = 'Digital Collection']/title"
+1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/relatedItem [@type = 'host']/titleInfo [@displayLabel = 'Digital Collection']/title"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/relatedItem [@type = 'host']/titleInfo [@displayLabel= 'Periodical Title']"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/relatedItem [@type = 'host']/titleInfo [@type = 'alternative', @displayLabel = 'Periodical Title']"
-1881,yes,,title,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/relatedItem [@type = 'host']/titleInfo [@type = 'alternative', @displayLabel = 'Periodical Title']/title"
+1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/relatedItem [@type = 'host']/titleInfo [@type = 'alternative', @displayLabel = 'Periodical Title']/title"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/relatedItem [@type = 'host']/titleInfo [@type= 'alternative']"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/subject [@authority = 'lcsh']"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/subject [@authority = 'lcsh']/topic"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/titleInfo"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/titleInfo [@type = 'alternative']"
-1881,yes,,title,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/titleInfo [@type = 'alternative']/title"
+1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/titleInfo [@type = 'alternative']/title"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/titleInfo/nonSort"
-1881,yes,,title,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/titleInfo/title"
+1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/titleInfo/title"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/typeOfResource"
 2,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']
 2,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/abstract [@displayLabel = 'Description']
@@ -256,14 +256,14 @@ Repeated,Needed,att_needed,Fields,XMLPath
 1,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/relatedItem [@type = 'host']/titleInfo [@displayLabel= 'Former Collection Title']
 1,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/relatedItem [@type = 'host']/titleInfo [@displayLabel= 'Repository Collection']
 1,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/relatedItem [@type = 'host']/titleInfo [@type = 'alternative', @displayLabel = 'Former Collection Title']"
-1,yes,,title,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/relatedItem [@type = 'host']/titleInfo [@type = 'alternative', @displayLabel = 'Former Collection Title']/title"
+1,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/relatedItem [@type = 'host']/titleInfo [@type = 'alternative', @displayLabel = 'Former Collection Title']/title"
 1,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/relatedItem [@type = 'host']/titleInfo [@type = 'alternative', @displayLabel = 'Repository Collection']"
-1,yes,,title,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/relatedItem [@type = 'host']/titleInfo [@type = 'alternative', @displayLabel = 'Repository Collection']/title"
+1,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/relatedItem [@type = 'host']/titleInfo [@type = 'alternative', @displayLabel = 'Repository Collection']/title"
 2,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/relatedItem [@type = 'host']/titleInfo [@type= 'alternative']
 5,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/subject [@authority = 'lcsh']
 11,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/subject [@authority = 'lcsh']/topic
 2,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/titleInfo
-2,yes,,title,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/titleInfo/title
+2,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/titleInfo/title
 2,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/typeOfResource
 1,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']
 1,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/abstract [@displayLabel = 'Description']
@@ -362,10 +362,10 @@ Repeated,Needed,att_needed,Fields,XMLPath
 1,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/relatedItem [@type = 'host']/location/url [@displayLabel = 'Relation']
 1,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/relatedItem [@type = 'host']/location/url [@displayLabel = 'Repository Collection Guide']
 1,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/relatedItem [@type = 'host']/titleInfo [@displayLabel = 'Digital Collection']
-1,yes,,title,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/relatedItem [@type = 'host']/titleInfo [@displayLabel = 'Digital Collection']/title
+1,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/relatedItem [@type = 'host']/titleInfo [@displayLabel = 'Digital Collection']/title
 1,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/relatedItem [@type = 'host']/titleInfo [@displayLabel= 'Repository Collection']
 1,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/relatedItem [@type = 'host']/titleInfo [@type = 'alternative', @displayLabel = 'Repository Collection']"
-1,yes,,title,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/relatedItem [@type = 'host']/titleInfo [@type = 'alternative', @displayLabel = 'Repository Collection']/title"
+1,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/relatedItem [@type = 'host']/titleInfo [@type = 'alternative', @displayLabel = 'Repository Collection']/title"
 1,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/relatedItem [@type = 'host']/titleInfo [@type= 'alternative']
 1,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/subject [@authority = 'lcsh', @displayLabel = 'Subject - Location']"
 1,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/subject [@authority = 'lcsh', @displayLabel = 'Subject - Location']/geographic"
@@ -390,7 +390,7 @@ Repeated,Needed,att_needed,Fields,XMLPath
 1,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/subject [@displayLabel= 'Subject - Time Period']
 4,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/subject [@displayLabel= 'Subject - Topic']
 1,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/titleInfo
-1,yes,,title,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/titleInfo/title
+1,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/titleInfo/title
 1,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd']/typeOfResource
 1932,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation= 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd']
 36,,,,mods/abstract
@@ -1727,30 +1727,30 @@ Repeated,Needed,att_needed,Fields,XMLPath
 2432,,,,mods/originInfo/dateCreated [@qualifier= 'approximate']
 884,,,,mods/originInfo/dateCreated [@qualifier= 'inferred']
 2244,,,,mods/originInfo/dateCreated [@qualifier= 'questionable']
-2,yes,,field_edtf_date_issued,mods/originInfo/dateIssued
-39,yes,,field_edtf_date_issued,"mods/originInfo/dateIssued [@encoding = 'w3cdtf', @keyDate = 'yes', @point = 'start', @qualifier = 'approximate']"
-10,yes,,field_edtf_date_issued,"mods/originInfo/dateIssued [@encoding = 'w3cdtf', @keyDate = 'yes', @point = 'start']"
-101,yes,,field_edtf_date_issued,"mods/originInfo/dateIssued [@encoding = 'w3cdtf', @keyDate = 'yes', @qualifier = 'approximate']"
-1,yes,,field_edtf_date_issued,"mods/originInfo/dateIssued [@encoding = 'w3cdtf', @keyDate = 'yes', @qualifier = 'questionable']"
-573,yes,,field_edtf_date_issued,"mods/originInfo/dateIssued [@encoding = 'w3cdtf', @keyDate = 'yes']"
-38,yes,,field_edtf_date_issued,"mods/originInfo/dateIssued [@encoding = 'w3cdtf', @point = 'end', @qualifier = 'approximate']"
-10,yes,,field_edtf_date_issued,"mods/originInfo/dateIssued [@encoding = 'w3cdtf', @point = 'end']"
-772,yes,,field_edtf_date_issued,mods/originInfo/dateIssued [@encoding= 'w3cdtf']
-1,yes,,field_edtf_date_issued,"mods/originInfo/dateIssued [@keyDate = 'yes', @point = 'start']"
-1,yes,,field_edtf_date_issued,"mods/originInfo/dateIssued [@keyDate = 'yes', @qualifier = 'approximate', @point = 'start']"
-22,yes,,field_edtf_date_issued,"mods/originInfo/dateIssued [@keyDate = 'yes', @qualifier = 'approximate']"
-1,yes,,field_edtf_date_issued,"mods/originInfo/dateIssued [@keyDate = 'yes', @qualifier = 'inferred']"
-41,yes,,field_edtf_date_issued,"mods/originInfo/dateIssued [@keyDate = 'yes', @qualifier = 'questionable']"
-9911,yes,,field_edtf_date_issued,mods/originInfo/dateIssued [@keyDate = 'yes']
-844,yes,,field_edtf_date_issued,mods/originInfo/dateIssued [@keyDate= 'yes']
-55,yes,,field_edtf_date_issued,mods/originInfo/dateIssued [@point = 'end']
-54,yes,,field_edtf_date_issued,"mods/originInfo/dateIssued [@point = 'start', @keyDate = 'yes']"
-49,yes,,field_edtf_date_issued,mods/originInfo/dateIssued [@point= 'end']
-105,yes,,field_edtf_date_issued,mods/originInfo/dateIssued [@point= 'start']
-1,yes,,field_edtf_date_issued,"mods/originInfo/dateIssued [@qualifier = 'approximate', @point = 'end']"
-202,yes,,field_edtf_date_issued,mods/originInfo/dateIssued [@qualifier= 'approximate']
-1,yes,,field_edtf_date_issued,mods/originInfo/dateIssued [@qualifier= 'inferred']
-42,yes,,field_edtf_date_issued,mods/originInfo/dateIssued [@qualifier= 'questionable']
+2,,,,mods/originInfo/dateIssued
+39,,,,"mods/originInfo/dateIssued [@encoding = 'w3cdtf', @keyDate = 'yes', @point = 'start', @qualifier = 'approximate']"
+10,,,,"mods/originInfo/dateIssued [@encoding = 'w3cdtf', @keyDate = 'yes', @point = 'start']"
+101,,,,"mods/originInfo/dateIssued [@encoding = 'w3cdtf', @keyDate = 'yes', @qualifier = 'approximate']"
+1,,,,"mods/originInfo/dateIssued [@encoding = 'w3cdtf', @keyDate = 'yes', @qualifier = 'questionable']"
+573,,,,"mods/originInfo/dateIssued [@encoding = 'w3cdtf', @keyDate = 'yes']"
+38,,,,"mods/originInfo/dateIssued [@encoding = 'w3cdtf', @point = 'end', @qualifier = 'approximate']"
+10,,,,"mods/originInfo/dateIssued [@encoding = 'w3cdtf', @point = 'end']"
+772,,,,mods/originInfo/dateIssued [@encoding= 'w3cdtf']
+1,,,,"mods/originInfo/dateIssued [@keyDate = 'yes', @point = 'start']"
+1,,,,"mods/originInfo/dateIssued [@keyDate = 'yes', @qualifier = 'approximate', @point = 'start']"
+22,,,,"mods/originInfo/dateIssued [@keyDate = 'yes', @qualifier = 'approximate']"
+1,,,,"mods/originInfo/dateIssued [@keyDate = 'yes', @qualifier = 'inferred']"
+41,,,,"mods/originInfo/dateIssued [@keyDate = 'yes', @qualifier = 'questionable']"
+9911,,,,mods/originInfo/dateIssued [@keyDate = 'yes']
+844,,,,mods/originInfo/dateIssued [@keyDate= 'yes']
+55,,,,mods/originInfo/dateIssued [@point = 'end']
+54,,,,"mods/originInfo/dateIssued [@point = 'start', @keyDate = 'yes']"
+49,,,,mods/originInfo/dateIssued [@point= 'end']
+105,,,,mods/originInfo/dateIssued [@point= 'start']
+1,,,,"mods/originInfo/dateIssued [@qualifier = 'approximate', @point = 'end']"
+202,,,,mods/originInfo/dateIssued [@qualifier= 'approximate']
+1,,,,mods/originInfo/dateIssued [@qualifier= 'inferred']
+42,,,,mods/originInfo/dateIssued [@qualifier= 'questionable']
 38,,,,mods/originInfo/dateOther [@lang = 'fre']
 112,,,,mods/originInfo/edition
 6089,,,,mods/originInfo/place
@@ -2041,7 +2041,7 @@ Repeated,Needed,att_needed,Fields,XMLPath
 118747,,,,mods/titleInfo
 1,,,,"mods/titleInfo [@ID = 'MODSMD_ELEC_TI1', @{http://www.w3.org/XML/1998/namespace}lang = 'en']"
 1,,,,"mods/titleInfo [@ID = 'MODSMD_ELEC_TI1', @{http://www.w3.org/XML/1998/namespace}lang = 'en']/nonSort"
-1,yes,,title,"mods/titleInfo [@ID = 'MODSMD_ELEC_TI1', @{http://www.w3.org/XML/1998/namespace}lang = 'en']/title"
+1,,,,"mods/titleInfo [@ID = 'MODSMD_ELEC_TI1', @{http://www.w3.org/XML/1998/namespace}lang = 'en']/title"
 1,,,,mods/titleInfo [@ID= 'MODSMD_ELEC_TI1']
 16,,,,mods/titleInfo [@displayLabel = 'Common name of plant']
 16,,,,mods/titleInfo [@displayLabel = 'Common name of plant']/subTitle
@@ -2055,8 +2055,8 @@ Repeated,Needed,att_needed,Fields,XMLPath
 17,,,,mods/titleInfo [@displayLabel = 'Scientific name (on plate)']/subTitle
 7,,,,mods/titleInfo [@displayLabel = 'Scientific name of plant']
 7,,,,mods/titleInfo [@displayLabel = 'Scientific name of plant']/subTitle
-31,yes,,title,mods/titleInfo [@displayLabel = 'Title']
-31,yes,,title,mods/titleInfo [@displayLabel = 'Title']/title
+31,,,,mods/titleInfo [@displayLabel = 'Title']
+31,,,,mods/titleInfo [@displayLabel = 'Title']/title
 13,,,,mods/titleInfo [@displayLabel= 'Alternative Title']
 238,,,,mods/titleInfo [@displayLabel= 'Common Name']
 34,,,,mods/titleInfo [@displayLabel= 'Common name (on plate)']
@@ -2065,35 +2065,34 @@ Repeated,Needed,att_needed,Fields,XMLPath
 1830,,,,mods/titleInfo [@displayLabel= 'Headline']
 2,,,,mods/titleInfo [@displayLabel= 'Title']
 2,,,,"mods/titleInfo [@type = '', @displayLabel = 'Title']"
-1343,yes,no,title,mods/titleInfo [@displayLabel = 'Title']/title
-2,yes,,title,"mods/titleInfo [@type = '', @displayLabel = 'Title']/title"
+2,,,,"mods/titleInfo [@type = '', @displayLabel = 'Title']/title"
 13,,,,"mods/titleInfo [@type = 'alternative', @displayLabel = 'Alternative Title']"
 6,,,,"mods/titleInfo [@type = 'alternative', @displayLabel = 'Alternative Title']/nonSort"
-13,yes,,title,"mods/titleInfo [@type = 'alternative', @displayLabel = 'Alternative Title']/title"
+13,,,,"mods/titleInfo [@type = 'alternative', @displayLabel = 'Alternative Title']/title"
 860,,,,"mods/titleInfo [@type = 'alternative', @displayLabel = 'First Line of Chorus']"
 28,,,,"mods/titleInfo [@type = 'alternative', @displayLabel = 'First Line of Chorus']/nonSort"
-860,yes,,title,"mods/titleInfo [@type = 'alternative', @displayLabel = 'First Line of Chorus']/title"
+860,,,,"mods/titleInfo [@type = 'alternative', @displayLabel = 'First Line of Chorus']/title"
 2794,,,,"mods/titleInfo [@type = 'alternative', @displayLabel = 'First Line']"
 173,,,,"mods/titleInfo [@type = 'alternative', @displayLabel = 'First Line']/nonSort"
-2794,yes,,title,"mods/titleInfo [@type = 'alternative', @displayLabel = 'First Line']/title"
+2794,,,,"mods/titleInfo [@type = 'alternative', @displayLabel = 'First Line']/title"
 1830,,,,"mods/titleInfo [@type = 'alternative', @displayLabel = 'Headline']"
-1830,yes,,title,"mods/titleInfo [@type = 'alternative', @displayLabel = 'Headline']/title"
+1830,,,,"mods/titleInfo [@type = 'alternative', @displayLabel = 'Headline']/title"
 1059,,,,mods/titleInfo [@type = 'alternative']
 62,,,,mods/titleInfo [@type = 'alternative']/nonSort
-1059,yes,,title,mods/titleInfo [@type = 'alternative']/title
+1059,,,,mods/titleInfo [@type = 'alternative']/title
 3,,,,mods/titleInfo [@type = 'uniform']
-3,yes,,title,mods/titleInfo [@type = 'uniform']/title
+3,,,,mods/titleInfo [@type = 'uniform']/title
 2,,,,mods/titleInfo [@type= '']
 5497,,,,mods/titleInfo [@type= 'alternative']
 238,,,,"mods/titleInfo [@usage = 'primary', @displayLabel = 'Common Name']"
-238,yes,,title,"mods/titleInfo [@usage = 'primary', @displayLabel = 'Common Name']/title"
+238,,,,"mods/titleInfo [@usage = 'primary', @displayLabel = 'Common Name']/title"
 34,,,,"mods/titleInfo [@usage = 'primary', @displayLabel = 'Common name (on plate)']"
 1,,,,"mods/titleInfo [@usage = 'primary', @displayLabel = 'Common name (on plate)']/nonSort"
-34,yes,,title,"mods/titleInfo [@usage = 'primary', @displayLabel = 'Common name (on plate)']/title"
+34,,,,"mods/titleInfo [@usage = 'primary', @displayLabel = 'Common name (on plate)']/title"
 272,,,,mods/titleInfo [@usage= 'primary']
 1,,,,mods/titleInfo [@{http://www.w3.org/XML/1998/namespace}lang= 'en']
 928,,,,mods/titleInfo/nonSort
 2,,,,mods/titleInfo/subTitle
-118747,yes,,title,mods/titleInfo/title
+118747,,,,mods/titleInfo/title
 40691,,,,mods/typeOfResource
 101,,,,mods/typeOfResource [@collection = 'yes']
