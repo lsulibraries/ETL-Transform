@@ -170,7 +170,7 @@ Repeated,Needed,att_needed,Fields,XMLPath
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/titleInfo [@type = 'alternative']"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/titleInfo [@type = 'alternative']/title"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/titleInfo/nonSort"
-1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/titleInfo/title"
+1881,yes,,title,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/titleInfo/title"
 1881,,,,"mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd', @version = '3.5']/typeOfResource"
 2,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']
 2,,,,mods [@{http://www.w3.org/2001/XMLSchema-instance}schemaLocation = 'http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-6.xsd']/abstract [@displayLabel = 'Description']
@@ -2093,6 +2093,6 @@ Repeated,Needed,att_needed,Fields,XMLPath
 1,,,,mods/titleInfo [@{http://www.w3.org/XML/1998/namespace}lang= 'en']
 928,,,,mods/titleInfo/nonSort
 2,,,,mods/titleInfo/subTitle
-118747,,,,mods/titleInfo/title
+118747,yes,,title,mods/titleInfo/title
 40691,,,,mods/typeOfResource
 101,,,,mods/typeOfResource [@collection = 'yes']
