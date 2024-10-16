@@ -27,7 +27,7 @@ def process_command_line_arguments():
     parser.add_argument('-i', '--input_directory', type=str, help='Path to the input directory', required=False)
     parser.add_argument('-oat', '--output_attribsTags', type=str, help='Path to the output attribute and tag list text file', required=False)
     parser.add_argument('-c', '--input_csv', type=str, help='Path to the input directory', required=False)
-    parser.add_argument('-cc', '--input_clear_csv', type=str, help='Path to the input directory', required=False)
+    parser.add_argument('-m', '--mapping_file', type=str, help='Path to the mapping file', required=False)
     parser.add_argument('-o', '--output_directory', type=str, help='Path to the output csv containing paths, frequency, and error reports', required=False)
     parser.add_argument('-ow', '--output_directory_w', type=str, help='Path to the output csv containing paths, frequency, and error reports', required=False)
     args = parser.parse_args()
