@@ -100,7 +100,7 @@ def get_csv(arg,argument):
     for columns in column_names:
         data_dict[columns] = list(df_attribTags[columns])
 
-    if argument.input_csv:
+    if argument.mapping_file:
         xml2wb_df = pd.DataFrame(data_dict)
         xml2wb_df = xml2wb_df[xml2wb_df['Needed'] == 'yes']
         return xml2wb_df
@@ -227,7 +227,7 @@ def xml_parse(root, dataframe, arg):
                 for k, v in attributes.items():
                     all_atrrib.append(k)
 
-                if arg.input_csv or arg.input_csv:
+                if arg.input_csv or arg.mapping_file:
                     for Keys, Values in attributes.items():
                         Write_Attributes.append([Keys, Values])
                         if arg.input_csv and 'atributes' in dataframe.keys():
@@ -299,14 +299,14 @@ def xml_parse(root, dataframe, arg):
         elif (arg.input_csv) and event== 'end':
             path_name.pop()
             
-        elif (arg.input_csv) and event== 'end' and elem.tag != first_elem[0]:
+        elif (arg.mapping_file) and event== 'end' and elem.tag != first_elem[0]:
             path_name.pop()
 
-        elif arg.input_csv and event == 'start' and elem.tag == first_elem[0]:
+        elif arg.mapping_file and event == 'start' and elem.tag == first_elem[0]:
             result_dict_temp = {}
             break
 
-        elif arg.input_csv and event == 'end' and elem.tag == first_elem[0]:
+        elif arg.mapping_file and event == 'end' and elem.tag == first_elem[0]:
             path_name.pop()
             dict_values = {}
             for keys, list_values in result_dict_temp.items():
@@ -325,7 +325,7 @@ def xml_parse(root, dataframe, arg):
     if arg.input_csv:
         return path_list
 
-    if arg.input_csv:
+    if arg.mapping_file:
         result_dict_final = {final_key: '|'.join(final_value) for final_key, final_value in result_dict_final.items()}
         return compare_and_write(result_dict_final, dataframe)
 
@@ -373,8 +373,8 @@ def main():
             get_unique_errors = error_repeat_check()
         writeto_csv = paths_to_dict(get_uniques_paths, get_unique_errors, args)
 
-    elif args.input_csv and args.input_directory and args.output_directory:
-        csv_to_dict = get_csv(args.input_csv,args) #dataframe containing needed fields
+    elif args.mapping_file and args.input_directory and args.output_directory:
+        csv_to_dict = get_csv(args.mapping_file,args) #dataframe containing needed fields
         data = xmlSet()
         data.xmlMods(args,csv_to_dict)
         with open(args.output_directory, 'w') as csv:
