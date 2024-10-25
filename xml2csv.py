@@ -268,7 +268,7 @@ def xml_parse(root, dataframe, arg):
                     else:
                         continue
             #appending text to the temporary dictionary: (tag.text or attribute value)       
-            if arg.input_csv and elem.text is not None and elem.text.strip() != "":
+            if arg.mapping_file and elem.text is not None and elem.text.strip() != "":
                 if len(all_generated_paths) > 0:
                     for index,paths in enumerate(all_generated_paths):
                         result_dict_temp.setdefault(paths, [])
