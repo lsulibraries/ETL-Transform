@@ -70,7 +70,7 @@ def input_directory(csvs, OBJS):
     LDLdf.drop("field_form_URI", inplace=True ,axis= 1,errors='ignore')
     LDLdf.drop("field_form_authURI", inplace=True ,axis= 1,errors='ignore')
     LDLdf.drop("field_rights_statement", inplace=True ,axis= 1,errors='ignore')
-    LDLdf.drop("field_rights_statement_uri", inplace=True ,axis= 1,errors='ignore')
+    LDLdf.drop("rights_statement_uri", inplace=True ,axis= 1,errors='ignore')
     LDLdf.drop("nan", inplace=True ,axis= 1,errors='ignore')
 
     #fill nul values
