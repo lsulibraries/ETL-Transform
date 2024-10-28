@@ -241,7 +241,6 @@ def input_RDF(RDF_dir, LDL):
                 issue_dates.append("")
                   
 
-    print(parent)  
     LDL["parent_id"] = parent    
     LDL["field_weight"] = weight
     LDL["field_model"] = content_type
