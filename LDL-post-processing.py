@@ -182,6 +182,7 @@ def input_RDF(RDF_dir, LDL):
                 content_type.append('Newspaper')
                 viewer.append('')
             if item_list[i][3][1][0] == 'info:fedora/islandora:newspaperIssueCModel':
+                print(item_list[i])
                 content_type.append('Publication Issue')
                 viewer.append('')
             if item_list[i][3][1][0] == 'info:fedora/islandora:sp_pdf':
@@ -199,6 +200,10 @@ def input_RDF(RDF_dir, LDL):
     for item in item_list:
         if item[3][0] == 'isMemberOf':
             parent_pid = item[3][1][0].split("/")
+            parent.append(parent_pid[1])
+            weight.append('')
+        if item[2][0] == 'isMemberOf':
+            parent_pid = item[2][1][0].split("/")
             parent.append(parent_pid[1])
             weight.append('') 
         if item[2][0] == 'isMemberOfCollection' and item[2][1][0].split('/')[1] == 'islandora:root':
@@ -235,7 +240,9 @@ def input_RDF(RDF_dir, LDL):
                 issue_dates.append(item_list[r][-3][3])
             else:
                 issue_dates.append("")
-                    
+                  
+
+    print(parent)  
     LDL["parent_id"] = parent    
     LDL["field_weight"] = weight
     LDL["field_model"] = content_type
