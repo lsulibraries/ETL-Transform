@@ -183,7 +183,7 @@ def input_RDF(RDF_dir, LDL):
                 viewer.append('')
             if item_list[i][3][1][0] == 'info:fedora/islandora:newspaperIssueCModel':
                 content_type.append('Publication Issue')
-                viewer.append('')
+                viewer.append('PDF.js')
             if item_list[i][3][1][0] == 'info:fedora/islandora:sp_pdf':
                 content_type.append('Document')
                 viewer.append('PDF.js')
