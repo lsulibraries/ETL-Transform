@@ -43,8 +43,8 @@ def input_directory(csvs, OBJS):
             file_column.append("")
 
     #id slice of the 
-    keys = ['amistad', 'apl', 'cppl', 'dcc', 'ebrpl', 'fpoc', 'hicks', 'hnoc', 'lasc', 'lsm', 'lsu', 'lsua', 'lsus', 'lsuhsc', 'lsuhscs', 'latech', 'loyno', 'louisiananewspapers', 'mcneese', 'nojh', 'nicholls', 'nsu', 'oplib', 'slu','subr', 'sowela','tahil']
-    values = ['Amistad', 'APL', 'CPPL', 'DCC', 'EBRPL', 'FPOC', 'Hicks', 'HNOC', 'LASC', 'LSM', 'LSU', 'LSUA', 'LSUS', 'LSUHSC', 'LSUSHCS', 'LATECH', 'LouisianaNewspapers', 'LOYNO', 'McNeese', 'NOJH', 'Nicholls', 'NSU', 'OPLIB', 'SLU', 'SUBR', 'SOWELA', 'TAHIL']
+    keys = ['amistad', 'apl', 'cppl', 'dcc', 'ebrpl', 'fpoc', 'hicks', 'hnoc', 'lsa', 'lasc', 'lsm', 'lsu', 'lsua', 'lsus', 'lsuhsc', 'lsuhscs', 'latech', 'loyno', 'louisiananewspapers', 'mcneese', 'nojh', 'nicholls', 'nsu', 'oplib', 'slu', 'subr', 'sowela', 'state', 'tahil', 'tulane', 'ull', 'ulm', 'uno']
+    values = ['Amistad', 'APL', 'CPPL', 'DCC', 'EBRPL', 'FPOC', 'Hicks', 'HNOC', 'LSA', 'LASC', 'LSM', 'LSU', 'LSUA', 'LSUS', 'LSUHSC', 'LSUSHCS', 'LATECH', 'LOYNO', 'LouisianaNewspapers', 'McNeese', 'NOJH', 'Nicholls', 'NSU', 'OPLIB', 'SLU', 'SUBR', 'SOWELA', 'State', 'TAHIL', 'Tulane', 'ULL', 'ULM', 'UNO']
     
     map_terms = {}
 
