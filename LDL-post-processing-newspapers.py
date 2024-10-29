@@ -248,10 +248,10 @@ def input_RDF(RDF_dir, LDL):
     LDL["field_edtf_date_issued"] = issue_dates
     LDL["field_edtf_date_created"] = ""
     LDL["field_linked_agent"] = ""
-    LDL.sort_values(by='field_model', ascending=True, inplace=True)
     LDL.sort_values(by='field_identifier', ascending=False, inplace=True)
     LDL.sort_values(by='parent_id', ascending=True, inplace=True)
     LDL.sort_values(by='field_weight', ascending=True, inplace=True)
+    LDL.sort_values(by='field_model', ascending=True, inplace=True)
 
 
     return LDL
