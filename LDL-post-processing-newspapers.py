@@ -138,8 +138,8 @@ def input_RDF(RDF_dir, LDL):
     
     for i in range(len(item_list)):
         if item_list[i][2][1][0] == 'info:fedora/islandora:bookCModel':
-            content_type.append('Paged Content')
-            viewer.append('Mirador')
+            content_type.append('Document')
+            viewer.append('PDF.js')
         if item_list[i][2][1][0] == 'info:fedora/islandora:sp_large_image_cmodel':
             content_type.append('Image')
             viewer.append('OpenSeadragon')
@@ -167,8 +167,8 @@ def input_RDF(RDF_dir, LDL):
             viewer.append('')
         if item_list[i][3][0]  == 'hasModel':
             if item_list[i][3][1][0] == 'info:fedora/islandora:bookCModel':
-                content_type.append('Paged Content')
-                viewer.append('Mirador')
+                content_type.append('Document')
+                viewer.append('PDF.js')
             if item_list[i][3][1][0] == 'info:fedora/islandora:sp_large_image_cmodel':
                 content_type.append('Image')
                 viewer.append('OpenSeadragon')
